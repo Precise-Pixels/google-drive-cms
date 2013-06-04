@@ -1,14 +1,3 @@
-<?php
-if (($handle = fopen('https://docs.google.com/spreadsheet/pub?key=0Ai1UvN4cvedHdGE4eWlfdXQ3OGRVR2R5a0lNM1FqSFE&output=csv', 'r')) !== false) {
-  while (($data = fgetcsv($handle, 1000, ",")) !== false) {
-    var_dump($data);
-    $row++;
-    ${$data[0]} = $data[1];
-  }
-  fclose($handle);
-}
-?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -18,6 +7,17 @@ if (($handle = fopen('https://docs.google.com/spreadsheet/pub?key=0Ai1UvN4cvedHd
 	<title>google-drive-cms</title>
 </head>
 <body>
+	<?php
+	if (($handle = fopen('https://docs.google.com/spreadsheet/pub?key=0Ai1UvN4cvedHdGE4eWlfdXQ3OGRVR2R5a0lNM1FqSFE&output=csv', 'r')) !== false) {
+	  while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+	    var_dump($data);
+	    $row++;
+	    ${$data[0]} = $data[1];
+	  }
+	  fclose($handle);
+	}
+	?>
+
 	<p>^ CSV to Array data ^</p>
 
 	<hr>

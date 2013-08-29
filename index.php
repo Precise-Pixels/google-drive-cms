@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 	<meta name="description" content="An experimental CMS using Google Drive."/>
-	<meta name="author" content="PrecisePixels"/>
+	<meta name="author" content="Precise Pixels"/>
 	<title>google-drive-cms</title>
 </head>
 <body>

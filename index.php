@@ -2,23 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8">
-	<meta name="description" content="An experimental CMS using Google Drive."/>
+	<meta name="description" content="An experimental CMS using Google Drive Spreadsheets."/>
 	<meta name="author" content="Precise Pixels"/>
 	<title>google-drive-cms</title>
 </head>
 <body>
 	<?php
-	if (($handle = fopen('https://docs.google.com/spreadsheet/pub?key=0Ai1UvN4cvedHdGE4eWlfdXQ3OGRVR2R5a0lNM1FqSFE&output=csv', 'r')) !== false) {
-	  while (($data = fgetcsv($handle, 1000, ',')) !== false) {
-	    var_dump($data);
-	    $row++;
-	    ${$data[0]} = $data[1];
-	  }
-	  fclose($handle);
+	if(($handle = fopen('https://docs.google.com/spreadsheets/d/10nKV3otoPrZA38AanPilGfSQGX2-FGRcG5qVdonby9k/export?gid=0&format=csv', 'r')) !== false) {
+	    while(($data = fgetcsv($handle, 1000, ',')) !== false) {
+	        echo $data[0] . ' - ' . $data[1] . '<br>';
+	        ${$data[0]} = $data[1];
+	    }
+	    fclose($handle);
 	}
 	?>
 
-	<p>^ CSV to Array data ^</p>
+	<p>^ CSV to key-value pairs ^</p>
 
 	<hr>
 
